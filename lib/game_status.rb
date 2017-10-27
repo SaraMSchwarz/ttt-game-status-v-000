@@ -22,3 +22,17 @@ WIN_COMBINATIONS = [
       board[wins[2]] && position_taken?(board, wins[1])
     end
   end
+
+def full?(board)
+board.none? do |f|
+  f == " " || f.nil?
+end
+end
+
+def draw?(board)
+  won?(board) == nil && full?(board) == true
+end
+
+def over?(board)
+  draw?(board) == true || won?(board) != nil
+end
